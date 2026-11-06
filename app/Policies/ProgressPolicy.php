@@ -25,21 +25,15 @@ class ProgressPolicy
 
     public function update(User $user, Progress $progress): bool
     {
-        if ($user->status !== 'aktif') {
-            return false;
-        }
-
-        return $user->role === 'superadmin'
-            || $progress->user_id === $user->id;
+        return $user->status === 'aktif'
+            && $user->role === 'staff'
+            && $progress->user_id === $user->id;
     }
 
     public function delete(User $user, Progress $progress): bool
     {
-        if ($user->status !== 'aktif') {
-            return false;
-        }
-
-        return $user->role === 'superadmin'
-            || $progress->user_id === $user->id;
+        return $user->status === 'aktif'
+            && $user->role === 'staff'
+            && $progress->user_id === $user->id;
     }
 }
