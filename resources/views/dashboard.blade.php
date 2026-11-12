@@ -167,7 +167,7 @@
                                     {{ $row['label'] }}
                                 </span>
                                 <span class="font-bold text-slate-700 dark:text-slate-200">
-                                    {{ $row['count'] }} <span class="font-medium text-slate-400">· {{ $percent }}%</span>
+                                    {{ $row['count'] }}
                                 </span>
                             </div>
 

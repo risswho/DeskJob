@@ -50,7 +50,7 @@ class ProgressService
 
                     $path = $file->store(
                         'progress-attachments',
-                        'public'
+                        'local'
                     );
 
                     if (!$path) {
@@ -74,7 +74,7 @@ class ProgressService
             return $progress->load('attachments');
 
         } catch (Throwable $exception) {
-            Storage::disk('public')->delete($storedFiles);
+            Storage::disk('local')->delete($storedFiles);
 
             throw $exception;
         }
@@ -112,7 +112,7 @@ class ProgressService
         });
 
         // File dihapus setelah transaksi database berhasil.
-        Storage::disk('public')->delete($filePaths);
+        Storage::disk('local')->delete($filePaths);
     }
 
     /**
@@ -143,7 +143,7 @@ class ProgressService
 
                     $path = $file->store(
                         'progress-attachments',
-                        'public'
+                        'local'
                     );
 
                     if (!$path) {
@@ -167,7 +167,7 @@ class ProgressService
             return $updatedProgress->load('attachments');
 
         } catch (Throwable $exception) {
-            Storage::disk('public')->delete($storedFiles);
+            Storage::disk('local')->delete($storedFiles);
 
             throw $exception;
         }
@@ -188,7 +188,7 @@ class ProgressService
         });
 
         // Hapus file setelah data database berhasil dihapus.
-        Storage::disk('public')->delete($filePath);
+        Storage::disk('local')->delete($filePath);
     }
 
     /**

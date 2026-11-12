@@ -10,6 +10,8 @@ use App\Models\ProgressAttachment;
 use App\Models\Task;
 use App\Services\ProgressService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ProgressController extends Controller
 {
@@ -87,10 +89,36 @@ class ProgressController extends Controller
             ->route('tasks.show', $taskId)
             ->with('success', 'Lampiran berhasil dihapus.');
     }
-}
 
-// Alur kerjanya:
-// 1. StoreProgressRequest memvalidasi data progress.
-// 2. StoreProgressAttachmentRequest memvalidasi lampiran.
-// 3. ProgressService menyimpan progress dan file.
-// 4. Pengguna diarahkan kembali ke detail tugas.
+    /**
+     * Menampilkan lampiran progress.
+     */
+    public function showAttachment(
+        ProgressAttachment $attachment
+    )
+    {
+        // Periksa izin melihat progress.
+        $this->authorize('view', $attachment->progress);
+
+        $disk = Storage::disk('local');
+
+        // Periksa apakah file tersedia.
+        abort_unless(
+            $disk->exists($attachment->file_path),
+            404,
+            'File tidak ditemukan.'
+        );
+
+        //ambil lokasi fisik file
+        $path = $disk->path($attachment->file_path);
+
+    //tentukan mime type
+        $mimeType = $disk->mimeType($attachment->file_path);
+
+        //kirim file agar ditampilkan browsser
+        return response()->file($path, [
+            'Content-Type' => $mimeType,
+            'X-Content-Type-Options' => 'nosniff',
+        ]);
+    }
+}

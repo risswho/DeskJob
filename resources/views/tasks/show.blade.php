@@ -288,25 +288,22 @@
 
                                                 <div class="flex flex-wrap gap-2">
                                                     @foreach ($progress->attachments as $attachment)
-                                                        @php $attachmentUrl = \Illuminate\Support\Facades\Storage::disk('public')->url($attachment->file_path); @endphp
-
                                                         <div class="flex max-w-full items-center gap-1 rounded-xl border border-slate-200 bg-white py-1.5 pl-2.5 pr-1.5 dark:border-slate-700 dark:bg-slate-900">
                                                             <x-icon name="document" class="h-3.5 w-3.5 shrink-0 text-slate-400" />
 
-                                                            <a href="{{ $attachmentUrl }}"
-                                                               target="_blank"
-                                                               rel="noopener"
-                                                               class="max-w-[12rem] truncate text-xs font-semibold text-slate-600 transition hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">
-                                                                {{ $attachment->file_name }}
+                                                            <a href="{{ route('attachments.view', $attachment) }}"
+                                                                target="_blank"
+                                                                rel="noopener"
+                                                                class="text-xs font-semibold text-brand-600 hover:underline dark:text-brand-400">
+                                                                    {{ $attachment->file_name }}
                                                             </a>
 
-                                                            <a href="{{ $attachmentUrl }}"
-                                                               target="_blank"
-                                                               rel="noopener"
-                                                               download
-                                                               class="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-brand-600 dark:hover:bg-slate-800 dark:hover:text-brand-400"
-                                                               title="Unduh lampiran">
-                                                                <x-icon name="download" class="h-3.5 w-3.5" />
+                                                            <a href="{{ route('attachments.view', $attachment) }}"
+                                                                target="_blank"
+                                                                rel="noopener"
+                                                                title="Unduh lampiran"
+                                                                class="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-brand-600 dark:hover:bg-slate-800 dark:hover:text-brand-400">
+                                                                    <x-icon name="download" class="h-3.5 w-3.5" />
                                                             </a>
 
                                                             @can('delete', $progress)

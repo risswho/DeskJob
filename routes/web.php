@@ -8,29 +8,31 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// Dashboard utama (wajib login)
+// Dashboard
 Route::get('/', [DashboardController::class, 'index'])
     ->middleware(['auth', 'active'])
     ->name('dashboard');
 
 // Guest
 Route::middleware('guest')->group(function () {
+
     Route::get('/login', [AuthController::class, 'showLogin'])
         ->name('login');
 
     Route::post('/login', [AuthController::class, 'login'])
         ->middleware('throttle:5,1')
         ->name('login.store');
+
 });
 
-// Pengguna yang sudah login dan aktif
+// Pengguna login dan aktif
 Route::middleware(['auth', 'active'])->group(function () {
 
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
-    // CRUD Category dan User khusus superadmin
+    // Category dan User khusus superadmin
     Route::middleware('role:superadmin')->group(function () {
 
         Route::resource('categories', CategoryController::class)
@@ -41,11 +43,11 @@ Route::middleware(['auth', 'active'])->group(function () {
 
     });
 
-    // Daftar tugas: semua user aktif
+    // Daftar tugas
     Route::get('/tasks', [TaskController::class, 'index'])
         ->name('tasks.index');
 
-    // CRUD tugas: khusus superadmin
+    // Membuat tugas
     Route::middleware('role:superadmin')->group(function () {
 
         Route::get('/tasks/create', [TaskController::class, 'create'])
@@ -56,14 +58,14 @@ Route::middleware(['auth', 'active'])->group(function () {
 
     });
 
-    // Detail tugas: semua user aktif
+    // Detail tugas
     Route::get('/tasks/{task}', [TaskController::class, 'show'])
         ->whereNumber('task')
         ->name('tasks.show');
 
+    // Mengelola tugas
     Route::middleware('role:superadmin')->group(function () {
 
-        // Penugasan staff
         Route::put('/tasks/{task}/assign', [TaskController::class, 'assignStaff'])
             ->whereNumber('task')
             ->name('tasks.assign');
@@ -82,28 +84,33 @@ Route::middleware(['auth', 'active'])->group(function () {
 
     });
 
-    // Membuat progress: semua user login, akses diperiksa oleh Policy
+    // Progress
     Route::post('/tasks/{task}/progress', [ProgressController::class, 'store'])
         ->whereNumber('task')
         ->name('tasks.progress.store');
 
-    //mengedit progress
     Route::put('/progress/{progress}', [ProgressController::class, 'update'])
         ->name('progress.update');
 
-    // Menghapus progress
     Route::delete('/progress/{progress}', [ProgressController::class, 'destroy'])
         ->name('progress.destroy');
-    
-    // Menambahkan lampiran ke progress
+
+    // Menambahkan lampiran
     Route::post('/progress/{progress}/attachments', [
         ProgressController::class,
         'addAttachments'
     ])->name('progress.attachments.store');
 
-    // Menghapus satu lampiran
+    // Menghapus lampiran
     Route::delete('/attachments/{attachment}', [
         ProgressController::class,
         'destroyAttachment'
     ])->name('progress.attachments.destroy');
+
+    // Melihat lampiran (WAJIB LOGIN)
+    Route::get('/attachments/{attachment}/view', [
+        ProgressController::class,
+        'showAttachment'
+    ])->name('attachments.view');
+
 });
