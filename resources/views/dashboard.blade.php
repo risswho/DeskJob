@@ -340,7 +340,7 @@
                                 </div>
 
                                 <span class="shrink-0 text-[10px] font-semibold text-slate-400 dark:text-slate-500">
-                                    {{ $progress->tanggal?->locale('id')->isoFormat('D MMM') }}
+                                    {{ $progress->tanggal?->locale('id')->isoFormat('D MMM') }} · {{ $progress->created_at?->locale('id')->isoFormat('HH:mm') }}
                                 </span>
                             </div>
                         @endforeach

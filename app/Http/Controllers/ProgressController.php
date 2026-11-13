@@ -121,4 +121,32 @@ class ProgressController extends Controller
             'X-Content-Type-Options' => 'nosniff',
         ]);
     }
+
+    /**
+     * Mengunduh lampiran progress.
+     */
+    public function downloadAttachment(
+        ProgressAttachment $attachment
+    )
+    {
+        // Periksa izin melihat progress.
+        $this->authorize('view', $attachment->progress);
+
+        $disk = Storage::disk('local');
+
+        // Periksa apakah file tersedia.
+        abort_unless(
+            $disk->exists($attachment->file_path),
+            404,
+            'File tidak ditemukan.'
+        );
+
+        //ambil lokasi fisik file
+        $path = $disk->path($attachment->file_path);
+
+        //kirim file agar langsung diunduh browser
+        return response()->download($path, $attachment->file_name, [
+            'X-Content-Type-Options' => 'nosniff',
+        ]);
+    }
 }

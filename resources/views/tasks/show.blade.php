@@ -7,7 +7,7 @@
         $isOverdue = $task->target_selesai->lt(today()) && $task->status !== 'selesai';
         $daysLeft = (int) today()->diffInDays($task->target_selesai->copy()->startOfDay());
         $attachmentCount = $task->progress->sum(fn ($progress) => $progress->attachments->count());
-        $sortedProgress = $task->progress->sortByDesc(fn ($progress) => $progress->tanggal?->timestamp ?? 0);
+        $sortedProgress = $task->progress->sortByDesc(fn ($progress) => [$progress->tanggal?->timestamp ?? 0, $progress->created_at?->timestamp ?? 0]);
         $assignedIds = $task->assignedUsers->pluck('id')->all();
         $selectedStaff = array_map('intval', old('staff', $assignedIds));
     @endphp
@@ -230,7 +230,7 @@
                                                         {{ $progress->user?->nama ?? 'Pengguna' }}
                                                     </p>
                                                     <p class="text-[10px] text-slate-400 dark:text-slate-500">
-                                                        {{ $progress->tanggal?->locale('id')->isoFormat('D MMMM YYYY') }}
+                                                        {{ $progress->tanggal?->locale('id')->isoFormat('D MMMM YYYY') }} · {{ $progress->created_at?->locale('id')->isoFormat('HH:mm') }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -298,12 +298,11 @@
                                                                     {{ $attachment->file_name }}
                                                             </a>
 
-                                                            <a href="{{ route('attachments.view', $attachment) }}"
-                                                                target="_blank"
-                                                                rel="noopener"
+                                                            <a href="{{ route('attachments.download', $attachment) }}"
                                                                 title="Unduh lampiran"
-                                                                class="rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-brand-600 dark:hover:bg-slate-800 dark:hover:text-brand-400">
-                                                                    <x-icon name="download" class="h-3.5 w-3.5" />
+                                                                class="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-brand-50 px-2.5 py-2 text-xs font-bold text-brand-600 transition hover:bg-brand-100 hover:text-brand-700 dark:bg-brand-950/40 dark:text-brand-400 dark:hover:bg-brand-900/60 dark:hover:text-brand-300">
+                                                                    <x-icon name="download" class="h-4 w-4" />
+                                                                    Unduh
                                                             </a>
 
                                                             @can('delete', $progress)

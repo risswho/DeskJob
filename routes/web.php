@@ -113,4 +113,10 @@ Route::middleware(['auth', 'active'])->group(function () {
         'showAttachment'
     ])->name('attachments.view');
 
+    // Mengunduh lampiran (WAJIB LOGIN)
+    Route::get('/attachments/{attachment}/download', [
+        ProgressController::class,
+        'downloadAttachment'
+    ])->name('attachments.download');
+
 });
