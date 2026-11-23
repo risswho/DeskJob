@@ -4,7 +4,7 @@
     $badges = [
         'belum_mulai' => [
             'label' => 'Belum mulai',
-            'class' => 'bg-slate-100 text-slate-700 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700',
+            'class' => 'bg-slate-100 text-slate-700 ring-slate-200 dark:bg-surface-800 dark:text-slate-300 dark:ring-surface-700',
             'dot' => 'bg-slate-400',
         ],
         'berjalan' => [
@@ -26,7 +26,7 @@
 
     $badge = $badges[$status] ?? [
         'label' => ucfirst(str_replace('_', ' ', (string) $status)),
-        'class' => 'bg-slate-100 text-slate-700 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700',
+        'class' => 'bg-slate-100 text-slate-700 ring-slate-200 dark:bg-surface-800 dark:text-slate-300 dark:ring-surface-700',
         'dot' => 'bg-slate-400',
     ];
 @endphp

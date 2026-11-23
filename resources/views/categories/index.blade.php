@@ -21,10 +21,10 @@
                 </a>
             </x-empty-state>
         @else
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
                 <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-slate-200 text-left dark:divide-slate-800">
-                        <thead class="bg-slate-50/80 dark:bg-slate-800/50">
+                    <table class="min-w-full divide-y divide-slate-200 text-left dark:divide-surface-800">
+                        <thead class="bg-slate-50/80 dark:bg-surface-800/50">
                             <tr class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                                 <th scope="col" class="px-5 py-3.5">Kategori</th>
                                 <th scope="col" class="px-4 py-3.5">Deskripsi</th>
@@ -33,9 +33,9 @@
                             </tr>
                         </thead>
 
-                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                        <tbody class="divide-y divide-slate-100 dark:divide-surface-800">
                             @foreach ($categories as $category)
-                                <tr class="transition hover:bg-slate-50/80 dark:hover:bg-slate-800/40">
+                                <tr class="transition hover:bg-slate-50/80 dark:hover:bg-surface-800/40">
                                     <td class="px-5 py-4">
                                         <div class="flex items-center gap-3">
                                             <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 dark:bg-brand-950/60 dark:text-brand-400">
@@ -54,7 +54,7 @@
                                     </td>
 
                                     <td class="px-4 py-4">
-                                        <span class="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                                        <span class="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600 dark:bg-surface-800 dark:text-slate-300">
                                             <x-icon name="tasks" class="h-3.5 w-3.5" />
                                             {{ $category->tasks_count }} tugas
                                         </span>
@@ -63,7 +63,7 @@
                                     <td class="px-5 py-4">
                                         <div class="flex items-center justify-end gap-1">
                                             <a href="{{ route('categories.edit', $category) }}"
-                                               class="rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-sky-600 dark:hover:bg-slate-800 dark:hover:text-sky-400"
+                                               class="rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-sky-600 dark:hover:bg-surface-800 dark:hover:text-sky-400"
                                                title="Edit kategori">
                                                 <x-icon name="edit" class="h-4 w-4" />
                                             </a>

@@ -45,6 +45,14 @@
                         800: '#065f46',
                         900: '#064e3b',
                         950: '#022c22'
+                    },
+                    surface: {
+                        950: '#121212',
+                        900: '#1a1a1a',
+                        800: '#242424',
+                        700: '#2e2e2e',
+                        600: '#3a3a3a',
+                        500: '#4a4a4a'
                     }
                 },
                 fontFamily: {
@@ -92,7 +100,7 @@
     }
 
     .dark * {
-        scrollbar-color: #334155 transparent;
+        scrollbar-color: #3a3a3a transparent;
     }
 
     *::-webkit-scrollbar {
@@ -106,7 +114,7 @@
     }
 
     .dark *::-webkit-scrollbar-thumb {
-        background-color: #334155;
+        background-color: #3a3a3a;
     }
 
     @keyframes fade-in-up {

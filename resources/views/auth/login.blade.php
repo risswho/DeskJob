@@ -18,7 +18,7 @@
 
         @if (session('success'))
             <div class="mt-6 flex items-start gap-3 rounded-2xl border border-brand-200 bg-brand-50 p-4 dark:border-brand-900 dark:bg-brand-950/50">
-                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 dark:bg-slate-900 dark:text-brand-400">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 dark:bg-surface-900 dark:text-brand-400">
                     <x-icon name="check-circle" class="h-5 w-5" />
                 </span>
                 <p class="pt-1 text-sm font-medium text-brand-800 dark:text-brand-300">
@@ -29,7 +29,7 @@
 
         @if ($errors->any())
             <div class="mt-6 flex items-start gap-3 rounded-2xl border border-rose-200 bg-rose-50 p-4 dark:border-rose-900 dark:bg-rose-950/40">
-                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-rose-600 dark:bg-slate-900 dark:text-rose-400">
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-rose-600 dark:bg-surface-900 dark:text-rose-400">
                     <x-icon name="alert-triangle" class="h-5 w-5" />
                 </span>
                 <div class="pt-0.5">
@@ -67,9 +67,9 @@
                            autocomplete="username"
                            placeholder="Masukkan username"
                            @class([
-                               'w-full rounded-xl border bg-white py-3 pl-11 pr-4 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:ring-4 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500',
+                               'w-full rounded-xl border bg-white py-3 pl-11 pr-4 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:ring-4 dark:bg-surface-950 dark:text-white dark:placeholder:text-slate-500',
                                'border-rose-300 focus:border-rose-400 focus:ring-rose-100 dark:border-rose-800 dark:focus:ring-rose-950/60' => $errors->has('username'),
-                               'border-slate-200 focus:border-brand-400 focus:ring-brand-100 dark:border-slate-700 dark:focus:border-brand-600 dark:focus:ring-brand-950/60' => ! $errors->has('username'),
+                               'border-slate-200 focus:border-brand-400 focus:ring-brand-100 dark:border-surface-700 dark:focus:border-brand-600 dark:focus:ring-brand-950/60' => ! $errors->has('username'),
                            ])>
                 </div>
 
@@ -93,9 +93,9 @@
                            autocomplete="current-password"
                            placeholder="Masukkan password"
                            @class([
-                               'w-full rounded-xl border bg-white py-3 pl-11 pr-12 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:ring-4 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500',
+                               'w-full rounded-xl border bg-white py-3 pl-11 pr-12 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:ring-4 dark:bg-surface-950 dark:text-white dark:placeholder:text-slate-500',
                                'border-rose-300 focus:border-rose-400 focus:ring-rose-100 dark:border-rose-800 dark:focus:ring-rose-950/60' => $errors->has('password'),
-                               'border-slate-200 focus:border-brand-400 focus:ring-brand-100 dark:border-slate-700 dark:focus:border-brand-600 dark:focus:ring-brand-950/60' => ! $errors->has('password'),
+                               'border-slate-200 focus:border-brand-400 focus:ring-brand-100 dark:border-surface-700 dark:focus:border-brand-600 dark:focus:ring-brand-950/60' => ! $errors->has('password'),
                            ])>
 
                     <button type="button"
@@ -121,7 +121,7 @@
                        name="remember"
                        value="1"
                        @checked(old('remember'))
-                       class="h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500 dark:border-slate-600 dark:bg-slate-900">
+                       class="h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500 dark:border-surface-600 dark:bg-surface-900">
                 Ingat saya di perangkat ini
             </label>
 

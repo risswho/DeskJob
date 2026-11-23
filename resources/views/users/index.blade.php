@@ -21,10 +21,10 @@
                 </a>
             </x-empty-state>
         @else
-            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
                 <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-slate-200 text-left dark:divide-slate-800">
-                        <thead class="bg-slate-50/80 dark:bg-slate-800/50">
+                    <table class="min-w-full divide-y divide-slate-200 text-left dark:divide-surface-800">
+                        <thead class="bg-slate-50/80 dark:bg-surface-800/50">
                             <tr class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                                 <th scope="col" class="px-5 py-3.5">Pengguna</th>
                                 <th scope="col" class="px-4 py-3.5">NIP</th>
@@ -35,9 +35,9 @@
                             </tr>
                         </thead>
 
-                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                        <tbody class="divide-y divide-slate-100 dark:divide-surface-800">
                             @foreach ($users as $user)
-                                <tr class="transition hover:bg-slate-50/80 dark:hover:bg-slate-800/40">
+                                <tr class="transition hover:bg-slate-50/80 dark:hover:bg-surface-800/40">
                                     <td class="px-5 py-4">
                                         <div class="flex items-center gap-3">
                                             <x-avatar :name="$user->nama" class="h-9 w-9 text-xs" />
@@ -81,7 +81,7 @@
                                                 Aktif
                                             </span>
                                         @else
-                                            <span class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-inset ring-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:ring-slate-700">
+                                            <span class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-inset ring-slate-200 dark:bg-surface-800 dark:text-slate-400 dark:ring-surface-700">
                                                 <span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
                                                 Nonaktif
                                             </span>
@@ -92,7 +92,7 @@
                                         <div class="flex items-center justify-end gap-1">
                                             @can('update', $user)
                                                 <a href="{{ route('users.edit', $user) }}"
-                                                   class="rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-sky-600 dark:hover:bg-slate-800 dark:hover:text-sky-400"
+                                                   class="rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-sky-600 dark:hover:bg-surface-800 dark:hover:text-sky-400"
                                                    title="Edit pengguna">
                                                     <x-icon name="edit" class="h-4 w-4" />
                                                 </a>

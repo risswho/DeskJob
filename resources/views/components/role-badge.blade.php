@@ -12,13 +12,13 @@
         ],
         'viewer' => [
             'label' => 'Viewer',
-            'class' => 'bg-slate-100 text-slate-700 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700',
+            'class' => 'bg-slate-100 text-slate-700 ring-slate-200 dark:bg-surface-800 dark:text-slate-300 dark:ring-surface-700',
         ],
     ];
 
     $badge = $badges[$role] ?? [
         'label' => ucfirst((string) $role),
-        'class' => 'bg-slate-100 text-slate-700 ring-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700',
+        'class' => 'bg-slate-100 text-slate-700 ring-slate-200 dark:bg-surface-800 dark:text-slate-300 dark:ring-surface-700',
     ];
 @endphp
 

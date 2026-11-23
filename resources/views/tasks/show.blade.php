@@ -21,12 +21,12 @@
             <span class="max-w-[12rem] truncate text-slate-600 dark:text-slate-300">{{ $task->nama }}</span>
         </nav>
 
-        <section class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+        <section class="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-surface-800 dark:bg-surface-900 sm:p-6">
             <div class="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand-50 dark:bg-brand-950/40"></div>
 
             <div class="relative">
                 <div class="flex flex-wrap items-center gap-2">
-                    <span class="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                    <span class="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-600 dark:bg-surface-800 dark:text-slate-300">
                         <x-icon name="tag" class="h-3.5 w-3.5" />
                         {{ $task->category?->nama ?? 'Tanpa kategori' }}
                     </span>
@@ -68,7 +68,7 @@
                     <div class="flex shrink-0 flex-wrap items-center gap-2">
                         @can('update', $task)
                             <a href="{{ route('tasks.edit', $task) }}"
-                               class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-800 dark:hover:text-sky-400">
+                               class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 dark:border-surface-700 dark:bg-surface-900 dark:text-slate-200 dark:hover:border-sky-800 dark:hover:text-sky-400">
                                 <x-icon name="edit" class="h-4 w-4" />
                                 Edit
                             </a>
@@ -82,7 +82,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                        class="inline-flex items-center gap-2 rounded-xl border border-rose-200 bg-white px-3.5 py-2.5 text-sm font-semibold text-rose-600 transition hover:bg-rose-50 dark:border-rose-900 dark:bg-slate-900 dark:text-rose-400 dark:hover:bg-rose-950/40">
+                                        class="inline-flex items-center gap-2 rounded-xl border border-rose-200 bg-white px-3.5 py-2.5 text-sm font-semibold text-rose-600 transition hover:bg-rose-50 dark:border-rose-900 dark:bg-surface-900 dark:text-rose-400 dark:hover:bg-rose-950/40">
                                     <x-icon name="trash" class="h-4 w-4" />
                                     Hapus
                                 </button>
@@ -95,8 +95,8 @@
 
         <div class="grid gap-6 lg:grid-cols-3">
             <div class="space-y-6 lg:col-span-2">
-                <section class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                    <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+                <section class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+                    <div class="border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                         <h2 class="flex items-center gap-2 text-base font-extrabold text-slate-900 dark:text-white">
                             <x-icon name="document" class="h-4 w-4 text-brand-600 dark:text-brand-400" />
                             Deskripsi pekerjaan
@@ -106,8 +106,8 @@
                     <p class="whitespace-pre-line p-5 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{{ $task->deskripsi }}</p>
                 </section>
 
-                <section class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+                <section class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                         <div>
                             <h2 class="flex items-center gap-2 text-base font-extrabold text-slate-900 dark:text-white">
                                 <x-icon name="clock" class="h-4 w-4 text-brand-600 dark:text-brand-400" />
@@ -120,7 +120,7 @@
                     </div>
 
                     @can('createProgress', $task)
-                        <div class="border-b border-slate-100 bg-brand-50/40 p-5 dark:border-slate-800 dark:bg-brand-950/20">
+                        <div class="border-b border-slate-100 bg-brand-50/40 p-5 dark:border-surface-800 dark:bg-brand-950/20">
                             <h3 class="flex items-center gap-2 text-sm font-extrabold text-brand-900 dark:text-brand-200">
                                 <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-600 text-white">
                                     <x-icon name="plus" class="h-4 w-4" />
@@ -147,7 +147,7 @@
                                                required
                                                maxlength="255"
                                                placeholder="Contoh: Menyelesaikan modul laporan"
-                                               class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-400 focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-brand-600 dark:focus:ring-brand-950/60">
+                                               class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-400 focus:ring-4 focus:ring-brand-100 dark:border-surface-700 dark:bg-surface-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-brand-600 dark:focus:ring-brand-950/60">
                                         <x-input-error :name="'nama'" />
                                     </div>
 
@@ -160,7 +160,7 @@
                                                name="tanggal"
                                                value="{{ old('tanggal', now()->toDateString()) }}"
                                                required
-                                               class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:border-brand-600 dark:focus:ring-brand-950/60">
+                                               class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100 dark:border-surface-700 dark:bg-surface-950 dark:text-white dark:focus:border-brand-600 dark:focus:ring-brand-950/60">
                                         <x-input-error :name="'tanggal'" />
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                               name="kendala"
                                               rows="3"
                                               placeholder="Tuliskan kendala yang dihadapi, jika ada..."
-                                              class="w-full resize-y rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-400 focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-brand-600 dark:focus:ring-brand-950/60">{{ old('kendala') }}</textarea>
+                                              class="w-full resize-y rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-400 focus:ring-4 focus:ring-brand-100 dark:border-surface-700 dark:bg-surface-950 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-brand-600 dark:focus:ring-brand-950/60">{{ old('kendala') }}</textarea>
                                     <x-input-error :name="'kendala'" />
                                 </div>
 
@@ -191,7 +191,7 @@
                                            data-file-list="progress-file-list"
                                            data-max-files="5"
                                            data-max-size="5"
-                                           class="block w-full cursor-pointer rounded-xl border border-dashed border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-500 file:mr-3 file:rounded-lg file:border-0 file:bg-brand-50 file:px-3 file:py-2 file:text-xs file:font-bold file:text-brand-700 hover:border-brand-300 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-400 dark:file:bg-brand-950/60 dark:file:text-brand-300">
+                                           class="block w-full cursor-pointer rounded-xl border border-dashed border-slate-300 bg-white px-3.5 py-2.5 text-xs text-slate-500 file:mr-3 file:rounded-lg file:border-0 file:bg-brand-50 file:px-3 file:py-2 file:text-xs file:font-bold file:text-brand-700 hover:border-brand-300 dark:border-surface-700 dark:bg-surface-950 dark:text-slate-400 dark:file:bg-brand-950/60 dark:file:text-brand-300">
 
                                     <p class="mt-1.5 text-[10px] text-slate-400 dark:text-slate-500">
                                         Maksimal 5 file, masing-masing 5 MB. Format: JPG, PNG, PDF, DOC, DOCX, XLS, XLSX.
@@ -220,7 +220,7 @@
                         @else
                             <div class="space-y-4">
                                 @foreach ($sortedProgress as $progress)
-                                    <article class="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 dark:border-slate-800 dark:bg-slate-800/30">
+                                    <article class="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 dark:border-surface-800 dark:bg-surface-800/30">
                                         <div class="flex flex-wrap items-start justify-between gap-3">
                                             <div class="flex min-w-0 items-center gap-2.5">
                                                 <x-avatar :name="$progress->user?->nama ?? 'User'" class="h-9 w-9 text-[10px]" />
@@ -240,7 +240,7 @@
                                                     <button type="button"
                                                             data-toggle-target="progress-edit-{{ $progress->id }}"
                                                             aria-expanded="false"
-                                                            class="rounded-lg p-2 text-slate-400 transition hover:bg-white hover:text-sky-600 dark:hover:bg-slate-800 dark:hover:text-sky-400"
+                                                            class="rounded-lg p-2 text-slate-400 transition hover:bg-white hover:text-sky-600 dark:hover:bg-surface-800 dark:hover:text-sky-400"
                                                             title="Edit progress">
                                                         <x-icon name="edit" class="h-4 w-4" />
                                                     </button>
@@ -254,7 +254,7 @@
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit"
-                                                                class="rounded-lg p-2 text-slate-400 transition hover:bg-white hover:text-rose-600 dark:hover:bg-slate-800 dark:hover:text-rose-400"
+                                                                class="rounded-lg p-2 text-slate-400 transition hover:bg-white hover:text-rose-600 dark:hover:bg-surface-800 dark:hover:text-rose-400"
                                                                 title="Hapus progress">
                                                             <x-icon name="trash" class="h-4 w-4" />
                                                         </button>
@@ -288,7 +288,7 @@
 
                                                 <div class="flex flex-wrap gap-2">
                                                     @foreach ($progress->attachments as $attachment)
-                                                        <div class="flex max-w-full items-center gap-1 rounded-xl border border-slate-200 bg-white py-1.5 pl-2.5 pr-1.5 dark:border-slate-700 dark:bg-slate-900">
+                                                        <div class="flex max-w-full items-center gap-1 rounded-xl border border-slate-200 bg-white py-1.5 pl-2.5 pr-1.5 dark:border-surface-700 dark:bg-surface-900">
                                                             <x-icon name="document" class="h-3.5 w-3.5 shrink-0 text-slate-400" />
 
                                                             <a href="{{ route('attachments.view', $attachment) }}"
@@ -345,7 +345,7 @@
                                                                    value="{{ $progress->nama }}"
                                                                    required
                                                                    maxlength="255"
-                                                                   class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-950/60">
+                                                                   class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-surface-700 dark:bg-surface-950 dark:text-white dark:focus:ring-sky-950/60">
                                                         </div>
 
                                                         <div>
@@ -357,7 +357,7 @@
                                                                    name="tanggal"
                                                                    value="{{ $progress->tanggal?->format('Y-m-d') }}"
                                                                    required
-                                                                   class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-950/60">
+                                                                   class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-surface-700 dark:bg-surface-950 dark:text-white dark:focus:ring-sky-950/60">
                                                         </div>
                                                     </div>
 
@@ -368,14 +368,14 @@
                                                         <textarea id="edit_progress_kendala_{{ $progress->id }}"
                                                                   name="kendala"
                                                                   rows="2"
-                                                                  class="w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-950/60">{{ $progress->kendala }}</textarea>
+                                                                  class="w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-surface-700 dark:bg-surface-950 dark:text-white dark:focus:ring-sky-950/60">{{ $progress->kendala }}</textarea>
                                                     </div>
 
                                                     <div class="flex items-center justify-end gap-2">
                                                         <button type="button"
                                                                 data-toggle-target="progress-edit-{{ $progress->id }}"
                                                                 aria-expanded="true"
-                                                                class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
+                                                                class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 dark:border-surface-700 dark:bg-surface-900 dark:text-slate-300">
                                                             Batal
                                                         </button>
 
@@ -390,7 +390,7 @@
                                             </div>
 
                                             <details class="group mt-3">
-                                                <summary class="inline-flex cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-[10px] font-bold uppercase tracking-wide text-slate-400 transition hover:bg-white hover:text-brand-600 dark:text-slate-500 dark:hover:bg-slate-800 dark:hover:text-brand-400">
+                                                <summary class="inline-flex cursor-pointer items-center gap-1.5 rounded-lg px-2 py-1.5 text-[10px] font-bold uppercase tracking-wide text-slate-400 transition hover:bg-white hover:text-brand-600 dark:text-slate-500 dark:hover:bg-surface-800 dark:hover:text-brand-400">
                                                     <x-icon name="paperclip" class="h-3.5 w-3.5" />
                                                     Tambah lampiran
                                                 </summary>
@@ -398,7 +398,7 @@
                                                 <form method="POST"
                                                       action="{{ route('progress.attachments.store', $progress) }}"
                                                       enctype="multipart/form-data"
-                                                      class="mt-2 flex flex-col gap-2 rounded-xl border border-slate-200 bg-white p-3 dark:border-slate-700 dark:bg-slate-900 sm:flex-row sm:items-center"
+                                                      class="mt-2 flex flex-col gap-2 rounded-xl border border-slate-200 bg-white p-3 dark:border-surface-700 dark:bg-surface-900 sm:flex-row sm:items-center"
                                                       data-submit-once>
                                                     @csrf
 
@@ -412,7 +412,7 @@
                                                            data-file-list="attachment-file-list-{{ $progress->id }}"
                                                            data-max-files="5"
                                                            data-max-size="5"
-                                                           class="block w-full flex-1 cursor-pointer rounded-lg border border-dashed border-slate-300 bg-white px-3 py-2 text-xs text-slate-500 file:mr-2 file:rounded-md file:border-0 file:bg-brand-50 file:px-2.5 file:py-1.5 file:text-[10px] file:font-bold file:text-brand-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-400 dark:file:bg-brand-950/60 dark:file:text-brand-300">
+                                                           class="block w-full flex-1 cursor-pointer rounded-lg border border-dashed border-slate-300 bg-white px-3 py-2 text-xs text-slate-500 file:mr-2 file:rounded-md file:border-0 file:bg-brand-50 file:px-2.5 file:py-1.5 file:text-[10px] file:font-bold file:text-brand-700 dark:border-surface-700 dark:bg-surface-950 dark:text-slate-400 dark:file:bg-brand-950/60 dark:file:text-brand-300">
 
                                                     <button type="submit"
                                                             data-loading-text="Mengunggah..."
@@ -435,14 +435,14 @@
             </div>
 
             <aside class="space-y-6">
-                <section class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                    <div class="flex items-center justify-between gap-2 border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+                <section class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+                    <div class="flex items-center justify-between gap-2 border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                         <h2 class="flex items-center gap-2 text-sm font-extrabold text-slate-900 dark:text-white">
                             <x-icon name="users" class="h-4 w-4 text-brand-600 dark:text-brand-400" />
                             Penugasan staff
                         </h2>
 
-                        <span class="rounded-lg bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                        <span class="rounded-lg bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-500 dark:bg-surface-800 dark:text-slate-400">
                             {{ $task->assignedUsers->count() }} orang
                         </span>
                     </div>
@@ -450,7 +450,7 @@
                     @can('assign', $task)
                         <form method="POST"
                               action="{{ route('tasks.assign', $task) }}"
-                              class="space-y-4 border-b border-slate-100 p-5 dark:border-slate-800"
+                              class="space-y-4 border-b border-slate-100 p-5 dark:border-surface-800"
                               data-submit-once>
                             @csrf
                             @method('PUT')
@@ -465,14 +465,14 @@
                                         Belum ada staff aktif.
                                     </p>
                                 @else
-                                    <div class="max-h-64 space-y-1 overflow-y-auto rounded-xl border border-slate-200 p-1.5 dark:border-slate-700">
+                                    <div class="max-h-64 space-y-1 overflow-y-auto rounded-xl border border-slate-200 p-1.5 dark:border-surface-700">
                                         @foreach ($staffs as $staff)
-                                            <label class="flex cursor-pointer items-center gap-2.5 rounded-lg px-2 py-1.5 transition hover:bg-slate-50 dark:hover:bg-slate-800">
+                                            <label class="flex cursor-pointer items-center gap-2.5 rounded-lg px-2 py-1.5 transition hover:bg-slate-50 dark:hover:bg-surface-800">
                                                 <input type="checkbox"
                                                        name="staff[]"
                                                        value="{{ $staff->id }}"
                                                        @checked(in_array($staff->id, $selectedStaff))
-                                                       class="h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500 dark:border-slate-600 dark:bg-slate-900">
+                                                       class="h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500 dark:border-surface-600 dark:bg-surface-900">
 
                                                 <x-avatar :name="$staff->nama" class="h-7 w-7 text-[9px]" />
 
@@ -497,7 +497,7 @@
                                        name="tanggal_penugasan"
                                        value="{{ old('tanggal_penugasan', now()->toDateString()) }}"
                                        required
-                                       class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-brand-400 focus:ring-4 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-brand-950/60">
+                                       class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 outline-none focus:border-brand-400 focus:ring-4 focus:ring-brand-100 dark:border-surface-700 dark:bg-surface-950 dark:text-white dark:focus:ring-brand-950/60">
                                 <x-input-error :name="'tanggal_penugasan'" />
                             </div>
 
@@ -529,14 +529,14 @@
                                 </div>
                             </div>
                         @empty
-                            <p class="rounded-xl border border-dashed border-slate-200 p-3 text-center text-xs text-slate-400 dark:border-slate-700 dark:text-slate-500">
+                            <p class="rounded-xl border border-dashed border-slate-200 p-3 text-center text-xs text-slate-400 dark:border-surface-700 dark:text-slate-500">
                                 Belum ada staff yang ditugaskan.
                             </p>
                         @endforelse
                     </div>
                 </section>
 
-                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-surface-800 dark:bg-surface-900">
                     <h2 class="flex items-center gap-2 text-sm font-extrabold text-slate-900 dark:text-white">
                         <x-icon name="chart" class="h-4 w-4 text-brand-600 dark:text-brand-400" />
                         Ringkasan
@@ -596,7 +596,7 @@
                         </div>
                     </dl>
 
-                    <div class="mt-4 border-t border-slate-100 pt-4 dark:border-slate-800">
+                    <div class="mt-4 border-t border-slate-100 pt-4 dark:border-surface-800">
                         <p class="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500">Dibuat</p>
                         <p class="mt-1 text-xs font-semibold text-slate-600 dark:text-slate-300">
                             {{ $task->creator?->nama ?? '-' }}

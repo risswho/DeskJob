@@ -2,10 +2,10 @@
     $isEdit = isset($user) && $user;
     $isSelf = $isEdit && auth()->id() === $user->id;
 
-    $inputClass = fn (string $field) => 'w-full rounded-xl border bg-white px-3.5 py-2.5 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:ring-4 dark:bg-slate-950 dark:text-white dark:placeholder:text-slate-500 ' .
+    $inputClass = fn (string $field) => 'w-full rounded-xl border bg-white px-3.5 py-2.5 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:ring-4 dark:bg-surface-950 dark:text-white dark:placeholder:text-slate-500 ' .
         ($errors->has($field)
             ? 'border-rose-300 focus:border-rose-400 focus:ring-rose-100 dark:border-rose-800 dark:focus:ring-rose-950/60'
-            : 'border-slate-200 focus:border-brand-400 focus:ring-brand-100 dark:border-slate-700 dark:focus:border-brand-600 dark:focus:ring-brand-950/60');
+            : 'border-slate-200 focus:border-brand-400 focus:ring-brand-100 dark:border-surface-700 dark:focus:border-brand-600 dark:focus:ring-brand-950/60');
 @endphp
 
 <div class="grid gap-6 lg:grid-cols-3">
@@ -22,8 +22,8 @@
             </div>
         @endif
 
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+            <div class="border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                 <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
                     Identitas pengguna
                 </h2>
@@ -111,8 +111,8 @@
             </div>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+            <div class="border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                 <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
                     Keamanan akun
                 </h2>
@@ -184,8 +184,8 @@
             </div>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            <div class="border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+            <div class="border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                 <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
                     Akses pengguna
                 </h2>
@@ -219,9 +219,9 @@
                 </div>
             </div>
 
-            <div class="flex flex-col-reverse gap-2 border-t border-slate-100 bg-slate-50/60 px-5 py-4 dark:border-slate-800 dark:bg-slate-800/30 sm:flex-row sm:items-center sm:justify-end">
+            <div class="flex flex-col-reverse gap-2 border-t border-slate-100 bg-slate-50/60 px-5 py-4 dark:border-surface-800 dark:bg-surface-800/30 sm:flex-row sm:items-center sm:justify-end">
                 <a href="{{ route('users.index') }}"
-                   class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800">
+                   class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 dark:border-surface-700 dark:bg-surface-900 dark:text-slate-200 dark:hover:bg-surface-800">
                     Batal
                 </a>
 
@@ -236,27 +236,27 @@
     </div>
 
     <aside class="space-y-6">
-        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-surface-800 dark:bg-surface-900">
             <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">
                 Panduan role
             </h3>
 
             <div class="mt-4 space-y-3">
-                <div class="rounded-xl border border-slate-100 p-3 dark:border-slate-800">
+                <div class="rounded-xl border border-slate-100 p-3 dark:border-surface-800">
                     <x-role-badge role="superadmin" />
                     <p class="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
                         Mengelola tugas, kategori, pengguna, penugasan, dan progress.
                     </p>
                 </div>
 
-                <div class="rounded-xl border border-slate-100 p-3 dark:border-slate-800">
+                <div class="rounded-xl border border-slate-100 p-3 dark:border-surface-800">
                     <x-role-badge role="staff" />
                     <p class="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
                         Melihat tugas dan mengirim progress pada tugas yang ditugaskan.
                     </p>
                 </div>
 
-                <div class="rounded-xl border border-slate-100 p-3 dark:border-slate-800">
+                <div class="rounded-xl border border-slate-100 p-3 dark:border-surface-800">
                     <x-role-badge role="viewer" />
                     <p class="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
                         Melihat seluruh tugas dan progress tanpa mengubah data.
@@ -266,7 +266,7 @@
         </div>
 
         @if ($isEdit)
-            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-surface-800 dark:bg-surface-900">
                 <h3 class="text-sm font-extrabold text-slate-900 dark:text-white">
                     Informasi akun
                 </h3>
@@ -293,7 +293,7 @@
                                     Aktif
                                 </span>
                             @else
-                                <span class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-inset ring-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:ring-slate-700">
+                                <span class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-inset ring-slate-200 dark:bg-surface-800 dark:text-slate-400 dark:ring-surface-700">
                                     <span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
                                     Nonaktif
                                 </span>

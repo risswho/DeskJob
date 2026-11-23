@@ -116,7 +116,7 @@
 
         <section class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             @foreach ($cards as $card)
-                <article class="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-soft dark:border-slate-800 dark:bg-slate-900 dark:hover:border-brand-900">
+                <article class="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-soft dark:border-surface-800 dark:bg-surface-900 dark:hover:border-brand-900">
                     <div class="flex items-start justify-between gap-3">
                         <div class="min-w-0">
                             <p class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
@@ -140,7 +140,7 @@
         </section>
 
         <section class="grid gap-6 xl:grid-cols-3">
-            <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+            <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-surface-800 dark:bg-surface-900">
                 <div class="flex items-start justify-between gap-3">
                     <div>
                         <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
@@ -171,27 +171,27 @@
                                 </span>
                             </div>
 
-                            <div class="mt-1.5 h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+                            <div class="mt-1.5 h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-surface-800">
                                 <div class="h-full rounded-full {{ $row['bar'] }} transition-all" style="width: {{ $percent }}%"></div>
                             </div>
                         </div>
                     @endforeach
                 </div>
 
-                <div class="mt-6 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4 dark:border-slate-800">
-                    <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/60">
+                <div class="mt-6 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4 dark:border-surface-800">
+                    <div class="rounded-xl bg-slate-50 p-3 dark:bg-surface-800/60">
                         <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Kategori</p>
                         <p class="mt-1 text-lg font-extrabold text-slate-800 dark:text-slate-100">{{ $stats['kategori'] }}</p>
                     </div>
-                    <div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/60">
+                    <div class="rounded-xl bg-slate-50 p-3 dark:bg-surface-800/60">
                         <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Pengguna aktif</p>
                         <p class="mt-1 text-lg font-extrabold text-slate-800 dark:text-slate-100">{{ $stats['pengguna'] }}</p>
                     </div>
                 </div>
             </article>
 
-            <article class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 xl:col-span-2">
-                <div class="flex items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+            <article class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900 xl:col-span-2">
+                <div class="flex items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                     <div>
                         <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
                             Tugas terbaru
@@ -213,10 +213,10 @@
                         <x-empty-state title="Belum ada tugas" message="Tugas yang dibuat akan muncul di sini." icon="tasks" />
                     </div>
                 @else
-                    <div class="divide-y divide-slate-100 dark:divide-slate-800">
+                    <div class="divide-y divide-slate-100 dark:divide-surface-800">
                         @foreach ($recentTasks as $task)
                             <a href="{{ route('tasks.show', $task) }}"
-                               class="group flex items-center gap-3 px-5 py-3.5 transition hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                               class="group flex items-center gap-3 px-5 py-3.5 transition hover:bg-slate-50 dark:hover:bg-surface-800/50">
                                 <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 dark:bg-brand-950/60 dark:text-brand-400">
                                     <x-icon name="tasks" class="h-4 w-4" />
                                 </span>
@@ -248,8 +248,8 @@
         </section>
 
         <section class="grid gap-6 lg:grid-cols-2">
-            <article class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                <div class="flex items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+            <article class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+                <div class="flex items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                     <div>
                         <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
                             Deadline mendatang
@@ -269,12 +269,12 @@
                         <x-empty-state title="Tidak ada deadline mendatang" message="Semua tugas aktif belum memiliki tenggat terdekat." icon="calendar" />
                     </div>
                 @else
-                    <div class="divide-y divide-slate-100 dark:divide-slate-800">
+                    <div class="divide-y divide-slate-100 dark:divide-surface-800">
                         @foreach ($upcomingTasks as $task)
                             @php $daysLeft = (int) today()->diffInDays($task->target_selesai->copy()->startOfDay()); @endphp
 
                             <a href="{{ route('tasks.show', $task) }}"
-                               class="flex items-center gap-3 px-5 py-3.5 transition hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                               class="flex items-center gap-3 px-5 py-3.5 transition hover:bg-slate-50 dark:hover:bg-surface-800/50">
                                 <div class="flex h-11 w-11 shrink-0 flex-col items-center justify-center rounded-xl bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-400">
                                     <span class="text-sm font-extrabold leading-none">{{ $task->target_selesai->format('d') }}</span>
                                     <span class="mt-0.5 text-[9px] font-bold uppercase leading-none">{{ $task->target_selesai->locale('id')->isoFormat('MMM') }}</span>
@@ -301,8 +301,8 @@
                 @endif
             </article>
 
-            <article class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                <div class="flex items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 dark:border-slate-800">
+            <article class="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-surface-800 dark:bg-surface-900">
+                <div class="flex items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 dark:border-surface-800">
                     <div>
                         <h2 class="text-base font-extrabold text-slate-900 dark:text-white">
                             Progress terbaru
@@ -322,7 +322,7 @@
                         <x-empty-state title="Belum ada progress" message="Progress yang dikirim tim akan muncul di sini." icon="clock" />
                     </div>
                 @else
-                    <div class="divide-y divide-slate-100 dark:divide-slate-800">
+                    <div class="divide-y divide-slate-100 dark:divide-surface-800">
                         @foreach ($recentProgress as $progress)
                             <div class="flex items-start gap-3 px-5 py-3.5">
                                 <x-avatar :name="$progress->user?->nama ?? 'User'" class="h-9 w-9 text-[10px]" />

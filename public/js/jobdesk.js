@@ -262,7 +262,7 @@
 
             files.forEach((file) => {
                 const item = document.createElement('span');
-                item.className = 'inline-flex max-w-full items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300';
+                item.className = 'inline-flex max-w-full items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-600 dark:bg-surface-800 dark:text-slate-300';
 
                 const name = document.createElement('span');
                 name.className = 'max-w-[14rem] truncate';
