@@ -12,6 +12,7 @@ use App\Services\TaskAssignmentService;
 use App\Services\TaskService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -83,7 +84,7 @@ class TaskController extends Controller
 
         return redirect()
             ->route('tasks.index')
-            ->with('success', 'Tugas berhasil dibuat.');
+            ->with('success', 'Tugas berhasil ditambahkan.');
     }
 
     //detail tugas
@@ -95,7 +96,7 @@ class TaskController extends Controller
 
         $staffs = collect();
 
-        if (auth()->user()->role === 'superadmin') {
+        if (Auth::user()->role === 'superadmin') {
             $staffs = User::query()
                 ->where('role', 'staff')
                 ->where('status', 'aktif')
